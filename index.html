@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامه مدیریت کارهای روزانه</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="help-btn" id="helpBtn">
+                <i class="fas fa-info-circle"></i>
+            </button>
+            <h1><i class="fas fa-tasks"></i> برنامه مدیریت کارها</h1>
+            <div class="date-display" id="currentDate"></div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalTasks">0</div>
+                    <div class="stat-label">کل کارها</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="pendingTasks">0</div>
+                    <div class="stat-label">در انتظار</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="completedTasks">0</div>
+                    <div class="stat-label">انجام شده</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="input-section">
+            <input type="text" class="task-input" id="taskInput" placeholder="کار جدیدی اضافه کنید...">
+            <input type="date" class="date-input" id="taskDate">
+            <button class="add-btn" id="addBtn">
+                <i class="fas fa-plus"></i> افزودن
+            </button>
+        </div>
+        
+        <div class="tabs" id="tabsContainer">
+        </div>
+        
+        <div class="tasks-section" id="tasksContainer">
+        </div>
+    </div>
+
+    <div class="help-modal" id="helpModal">
+        <div class="help-content">
+            <button class="close-help" id="closeHelp">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2><i class="fas fa-info-circle"></i> راهنمای برنامه</h2>
+            
+            <div class="help-section">
+                <h3><i class="fas fa-info"></i> درباره برنامه</h3>
+                <p>برنامه مدیریت کارهای روزانه یک ابزار ساده و کاربردی برای سازماندهی و پیگیری کارهای روزمره شماست. با استفاده از این برنامه می‌توانید:</p>
+                <ul>
+                    <li>کارهای خود را به صورت منظم ثبت کنید</li>
+                    <li>برای هر کار تاریخ مشخص تعیین کنید</li>
+                    <li>پیشرفت کارهای خود را پیگیری کنید</li>
+                    <li>کارهای انجام شده را از لیست جدا کنید</li>
+                </ul>
+            </div>
+            
+            <div class="help-section">
+                <h3><i class="fas fa-plus-circle"></i> افزودن کار جدید</h3>
+                <ul>
+                    <li>متن کار خود را در قسمت ورودی بنویسید</li>
+                    <li>تاریخ مورد نظر را از تقویم انتخاب کنید</li>
+                    <li>روی دکمه "افزودن" کلیک کنید یا کلید Enter را فشار دهید</li>
+                </ul>
+            </div>
+            
+            <div class="help-section">
+                <h3><i class="fas fa-edit"></i> مدیریت کارها</h3>
+                <ul>
+                    <li>برای علامت‌زدن کار به عنوان انجام شده، روی چک‌باکس یا متن کار کلیک کنید</li>
+                    <li>برای ویرایش کار، روی آیکون ویرایش (مداد) کلیک کنید</li>
+                    <li>برای ویرایش تاریخ، در حالت ویرایش روی فیلد تاریخ کلیک کرده و تاریخ جدید را انتخاب کنید</li>
+                    <li>برای حذف کار، روی آیکون سطل زباله کلیک کنید</li>
+                </ul>
+            </div>
+            
+            <div class="help-section">
+                <h3><i class="fas fa-filter"></i> فیلتر کارها</h3>
+                <ul>
+                    <li><strong>امروز:</strong> نمایش کارهای امروز</li>
+                    <li><strong>فردا:</strong> نمایش کارهای فردا</li>
+                    <li><strong>گذشته:</strong> نمایش کارهای تاریخ گذشته</li>
+                    <li><strong>بدون تاریخ:</strong> نمایش کارهای بدون تاریخ مشخص</li>
+                    <li><strong>همه کارها:</strong> نمایش تمام کارهای انجام نشده</li>
+                    <li><strong>انجام شده:</strong> نمایش کارهای تکمیل شده</li>
+                </ul>
+            </div>
+            
+            <div class="help-section">
+                <h3><i class="fas fa-lightbulb"></i> نکات مهم</h3>
+                <ul>
+                    <li>کارها به صورت خودکار در مرورگر شما ذخیره می‌شوند</li>
+                    <li>با بستن مرورگر، کارهای شما از بین نمی‌روند</li>
+                    <li>برای ویرایش تاریخ یک کار، در حالت ویرایش روی فیلد تاریخ کلیک کنید</li>
+                    <li>کارهای انجام شده به طور خودکار به بخش "انجام شده" منتقل می‌شوند</li>
+                </ul>
+            </div>
+            
+            <div class="developer-info">
+                <div class="developer-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="developer-details">
+                    <h4>برنامه‌نویس: معین زنجیریان زاده</h4>
+                    <p>توسعه‌دهنده وب و علاقه‌مند به ایجاد ابزارهای کاربردی</p>
+                    <p>ایمیل: moeinz9322@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
