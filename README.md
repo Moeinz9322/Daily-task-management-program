@@ -15,9 +15,13 @@ This app does **not require a server or database** and is built using **HTML, CS
 ## 🚀 Features
 
 ✅ Add new tasks with a specific date
+
 ✅ Edit task text and date
+
 ✅ Mark tasks as completed
+
 ✅ Delete tasks with smooth animation
+
 ✅ Filter tasks by status:
 
 * Today
@@ -26,9 +30,13 @@ This app does **not require a server or database** and is built using **HTML, CS
 * No date
 * All tasks
 * Completed
+
   ✅ Task statistics (total, completed, pending)
+
   ✅ Automatic saving in the browser (LocalStorage)
+
   ✅ Modern UI with gradient colors and responsive design
+
   ✅ Built-in help modal
 
 ---
